@@ -1,0 +1,29 @@
+version: '3'
+
+# vars can be used to define common paths or options if needed
+# vars:
+#   CUE_PACKAGES: ./...
+
+tasks:
+  default:
+    silent: true
+    cmds:
+      - task --list-all
+
+  fmt:
+    desc: "Run cue fix and cue fmt on all CUE packages in the current module"
+    cmds:
+      - echo "Running 'cue fmt ./...' to format CUE files..."
+      - cue fmt ./...
+
+  fix:
+    desc: "Run cue fix on all CUE packages"
+    cmds:
+      - echo "Running 'cue fix ./...' to fix CUE files..."
+      - cue fix ./...
+  
+  vet:
+    desc: "Run cue vet on all CUE packages"
+    cmds:
+      - echo "Running 'cue vet ./...' to validate CUE files..."
+      - cue vet ./...
